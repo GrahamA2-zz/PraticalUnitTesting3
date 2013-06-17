@@ -1,3 +1,4 @@
+package uk.co.hydrodev;
 
 
 import static junitparams.JUnitParamsRunner.$;
@@ -9,6 +10,8 @@ import junitparams.Parameters;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import uk.co.hydrodev.Money;
 
 @RunWith(JUnitParamsRunner.class)
 public class MoneyTest {
@@ -32,7 +35,7 @@ public class MoneyTest {
 	}
 
 	@Test(expected = Exception.class)
-	public void shouldhrowExceptions(){
+	public void shouldthrowExceptions(){
 
 	}
 

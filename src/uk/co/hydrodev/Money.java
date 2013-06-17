@@ -1,3 +1,4 @@
+package uk.co.hydrodev;
 
 
 public class Money {
