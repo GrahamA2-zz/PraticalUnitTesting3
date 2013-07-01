@@ -17,7 +17,7 @@ public class FootballTeam implements Comparable<FootballTeam>{
 	@Override
 	public int compareTo(FootballTeam o) {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.gamesWon - o.gamesWon;
 	}
 
 }

@@ -36,7 +36,27 @@ public class FootballTeamTest {
 		FootballTeam team = new FootballTeam(5);
 		assertTrue(team instanceof Comparable);
 	}
-
+	
+	@Test
+	public void teamsWithMoreMatchesWonShouldBeGreater(){
+		FootballTeam team1 = new FootballTeam(2);
+		FootballTeam team2 = new FootballTeam(3);
+		assertTrue(team2.compareTo(team1) > 0);
+	}
+		
+	@Test
+	public void teamsWithMoreMatchesWonShouldBeLess(){
+		FootballTeam team1 = new FootballTeam(3);
+		FootballTeam team2 = new FootballTeam(2);
+		assertTrue(team2.compareTo(team1) < 0);
+	}
+	
+	@Test
+	public void teamsWithMoreMatchesWonShouldBeTheSame(){
+		FootballTeam team1 = new FootballTeam(3);
+		FootballTeam team2 = new FootballTeam(3);
+		assertTrue(team2.compareTo(team1) == 0);
+	}
 	
 	@Test
 	@Parameters(method = "nbOfGamesWon")
@@ -52,4 +72,9 @@ public class FootballTeamTest {
 		FootballTeam team = new FootballTeam(nbOfGamesWon);
 		assertThat("Constructor",team.getGamesWon(), equalTo(nbOfGamesWon));
 	}
+	
+	
+	
+	
+	
 }
