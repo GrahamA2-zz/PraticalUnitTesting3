@@ -1,4 +1,4 @@
-package uk.co.hydrodev;
+package uk.co.hydrodev.misc;
 
 public class Password {
 
@@ -12,7 +12,7 @@ public class Password {
 	public Boolean isValid() {
 		boolean lengthValid = password.length() >= MIN_LENGTH;
 		for ( String s : password.split("")){
-			if 
+	
 		}
 		boolean caseValid = !(password.toUpperCase().equals(password));
 		return lengthValid && caseValid;

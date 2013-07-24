@@ -1,4 +1,4 @@
-package uk.co.hydrodev;
+package uk.co.hydrodev.misc;
 
 
 import static junitparams.JUnitParamsRunner.$;
@@ -11,7 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import uk.co.hydrodev.Money;
 
 @RunWith(JUnitParamsRunner.class)
 public class MoneyTest {

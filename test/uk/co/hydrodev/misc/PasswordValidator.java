@@ -1,10 +1,12 @@
-package uk.co.hydrodev;
+package uk.co.hydrodev.misc;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import uk.co.hydrodev.*;
 
 public class PasswordValidator {
 

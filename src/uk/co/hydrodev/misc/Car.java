@@ -1,4 +1,4 @@
-package uk.co.hydrodev;
+package uk.co.hydrodev.misc;
 
 public interface Car {
 	boolean needsFuel();

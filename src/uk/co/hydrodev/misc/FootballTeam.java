@@ -1,4 +1,4 @@
-package uk.co.hydrodev;
+package uk.co.hydrodev.misc;
 
 public class FootballTeam implements Comparable<FootballTeam>{
 
