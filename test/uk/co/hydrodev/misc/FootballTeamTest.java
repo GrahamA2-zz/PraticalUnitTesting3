@@ -2,19 +2,18 @@ package uk.co.hydrodev.misc;
 
 
 import static junitparams.JUnitParamsRunner.$;
-import junitparams.Parameters;
-import junitparams.JUnitParamsRunner;
-
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import org.junit.runner.RunWith;
 
-import uk.co.hydrodev.*;
+
+
 @RunWith(JUnitParamsRunner.class)
 public class FootballTeamTest {
 
@@ -69,7 +68,7 @@ public class FootballTeamTest {
 	
 	
 	@Test(expected=IllegalArgumentException.class)
-	@Parameters(method = "illegalNbOfGamesWon")
+	@junitparams.Parameters(method = "illegalNbOfGamesWon")
 	public void testIllegalConstructorShouldSetGamesWon(int nbOfGamesWon) {
 		FootballTeam team = new FootballTeam(nbOfGamesWon);
 		assertThat("Constructor",team.getGamesWon(), equalTo(nbOfGamesWon));

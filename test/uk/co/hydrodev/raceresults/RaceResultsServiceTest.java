@@ -3,9 +3,11 @@ package uk.co.hydrodev.raceresults;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
- 
-import org.junit.*;
-import org.mockito.*;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 
 public class RaceResultsServiceTest {

@@ -1,12 +1,12 @@
 package uk.co.hydrodev.misc;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-import org.junit.Before;
 import org.junit.Test;
-
-import uk.co.hydrodev.*;
 
 public class FirstMockitoTest {
 	

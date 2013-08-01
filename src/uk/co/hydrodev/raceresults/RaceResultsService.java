@@ -1,6 +1,7 @@
 package uk.co.hydrodev.raceresults;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
 
 public class RaceResultsService {
 
