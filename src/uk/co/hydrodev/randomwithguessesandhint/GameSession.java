@@ -15,6 +15,8 @@ public class GameSession {
 	private final List<Integer> guesses = new ArrayList<>();
 	
 	public GameSession(RandomNumberGenerator generator) {
+		if (generator == null)
+			throw new IllegalArgumentException("A Random Numner generator is required");
 		this.generator = generator;
 		generator.start();
 	}
@@ -82,9 +84,14 @@ public class GameSession {
 	}
 
 	public String start() {
-		generator.guessANumber();
-		gameRunning = true;
-		return "Make a guess";
+		try {
+			generator.guessANumber();
+			gameRunning = true;
+			return "Make a guess";
+		} catch (Exception e) {
+			return "Lets play later";
+		}
+		
 	}
 
 	public Boolean isGameRunning() {

@@ -6,7 +6,7 @@ public class DefaultRandomNumberGenerator implements RandomNumberGenerator {
 
 	private int maxGuess = 1;
 	private int currentGuess = 0;
-	private Random random; // = makeRandom();
+	private final Random random; // = makeRandom();
 
 
 	public DefaultRandomNumberGenerator(Random random) {
@@ -24,9 +24,9 @@ public class DefaultRandomNumberGenerator implements RandomNumberGenerator {
 	}
 
 	//18.	Change to Random so I can mock the random number generator
-	public Random makeRandom() {
-		return new Random();
-	}
+//	public Random makeRandom() {
+//		return new Random();
+//	}
 
 	@Override
 	public int getMyNumber() {

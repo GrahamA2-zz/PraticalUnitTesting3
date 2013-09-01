@@ -1,15 +1,12 @@
 package uk.co.hydrodev;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+import org.junit.runner.*;
+import org.junit.runners.*;
 import org.junit.runners.Suite.SuiteClasses;
 
-import uk.co.hydrodev.misc.FirstMockitoTest;
-import uk.co.hydrodev.misc.FootballTeamTest;
-import uk.co.hydrodev.misc.MoneyTest;
-import uk.co.hydrodev.misc.PasswordValidator;
-import uk.co.hydrodev.raceresults.RaceResultsServiceTest;
-import uk.co.hydrodev.userservice.TestUserService;
+import uk.co.hydrodev.misc.*;
+import uk.co.hydrodev.raceresults.*;
+import uk.co.hydrodev.userservice.*;
 
 @RunWith(Suite.class)
 @SuiteClasses({ FirstMockitoTest.class
@@ -17,7 +14,10 @@ import uk.co.hydrodev.userservice.TestUserService;
 	          , MoneyTest.class
 	          , PasswordValidator.class
 	          , TestUserService.class
-	          , RaceResultsServiceTest.class})
+	          , RaceResultsServiceTest.class
+	          , uk.co.hydrodev.random.AllTests.class
+	          , uk.co.hydrodev.randomwithguesses.AllTests.class
+	          , uk.co.hydrodev.randomwithguessesandhint.AllTests.class})
 public class AllTests {
 
 }

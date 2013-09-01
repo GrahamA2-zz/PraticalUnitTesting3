@@ -1,7 +1,6 @@
 package uk.co.hydrodev.randomwithguesses;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class GameSession {
 
@@ -16,6 +15,8 @@ public class GameSession {
 	private final List<Integer> guesses = new ArrayList<>();
 	
 	public GameSession(RandomNumberGenerator generator) {
+		if (generator == null)
+			throw new IllegalArgumentException("A Random Numner generator is required");
 		this.generator = generator;
 		generator.start();
 	}

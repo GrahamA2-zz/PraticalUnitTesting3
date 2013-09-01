@@ -1,10 +1,9 @@
 package uk.co.hydrodev.randomwithguessesandhint;
 
-import static junitparams.JUnitParamsRunner.$;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static junitparams.JUnitParamsRunner.*;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 import java.text.*;
 
@@ -13,6 +12,7 @@ import junitparams.*;
 import org.junit.*;
 import org.junit.runner.*;
 import org.mockito.*;
+
 
 @RunWith(JUnitParamsRunner.class)
 public class TestGuessMyNumber {
@@ -40,10 +40,16 @@ public class TestGuessMyNumber {
 		session = new GameSession(generator);
 		session.setMaxGuesses(DEFAULT_MAX_GUESSES); // 4.	Now we set the default number of guesses to the max
 	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testGameValidatesItsParameters() {
+		new GameSession(null);
+	}
 
 	@Test
 	public void testGameIsNotRunning() {
 		assertThat(session.isGameRunning(), is(false));
+		assertThat(session.gameOver(), is(true));
 	}
 	
 	@Test
@@ -56,6 +62,14 @@ public class TestGuessMyNumber {
 	@Test
 	public void testGameSessionStarts() {
 		assertThat(session.start(), is("Make a guess"));
+		verify(generator).guessANumber();
+	}
+	
+	//Checks that the game fails if the random number generator is not working
+	@Test()
+	public void testGameSessionStartsAndTheRandomNumberGeneratorFails() {
+		doThrow(new RuntimeException()).when(generator).guessANumber();
+		assertThat(session.start(), is("Lets play later"));
 		verify(generator).guessANumber();
 	}
 	
@@ -73,6 +87,7 @@ public class TestGuessMyNumber {
 		session.start();
 		when(generator.getMyNumber()).thenReturn(myNumber);
 		assertThat(session.isGameRunning(), is(true));
+		assertThat(session.gameOver(), is(false));
 		assertThat(session.makeAGuess(myNumber), is("Correct!"));
 		assertThat(session.gameOver(), is(true));
 	}
@@ -90,10 +105,11 @@ public class TestGuessMyNumber {
 		assertThat(session.makeAGuess(4), is(formatWrongGuess(DEFAULT_MAX_GUESSES - 1, "4", HIGHER)));
 	}
 	
+	@Test
 	public void testGameSessionTellsMyIAmWrongHighGuess() {
 		session.start();
 		when(generator.getMyNumber()).thenReturn(5);
-		assertThat(session.makeAGuess(4), is(formatWrongGuess(DEFAULT_MAX_GUESSES - 1, "4", LOWER)));
+		assertThat(session.makeAGuess(6), is(formatWrongGuess(DEFAULT_MAX_GUESSES - 1, "6", LOWER)));
 	}
 	
 	
@@ -164,8 +180,15 @@ public class TestGuessMyNumber {
 		session.makeAGuess(invaldGuess);
 	}
 	
+	@Test(expected=IllegalArgumentException.class )
+	public void testMakeAGuessRejectsNullData() {
+		session.start();
+		String guess = null;
+		session.makeAGuess(Integer.parseInt(guess));
+	}
+	
 	public Object[] invalidGuess(){
-		return $(-1, 0, 11);
+		return $(-1, 0, 11,"Seven",'7');
 	}
 	
 	

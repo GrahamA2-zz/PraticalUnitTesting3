@@ -5,14 +5,12 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import junitparams.JUnitParamsRunner;
-import junitparams.Parameters;
+import junitparams.*;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.junit.*;
+import org.junit.runner.*;
+import org.mockito.*;
+
 
 @RunWith(JUnitParamsRunner.class)
 public class TestGuessMyNumber {
@@ -33,6 +31,11 @@ public class TestGuessMyNumber {
 		when(generator.getMaxValue()).thenReturn(DEFAULT_MAX_VALUE);
 		session = new GameSession(generator);
 		session.setMaxGuesses(DEFAULT_MAX_GUESSES); // 4.	Now we set the default number of guesses to the max
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testGameValidatesItsParameters() {
+		new GameSession(null);
 	}
 
 	@Test

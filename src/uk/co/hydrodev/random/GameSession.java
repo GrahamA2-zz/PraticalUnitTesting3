@@ -12,6 +12,8 @@ public class GameSession {
 	private boolean gameRunning = false;
 	
 	public GameSession(RandomNumberGenerator generator) {
+		if (generator == null)
+			throw new IllegalArgumentException("A Random Numner generator is required");
 		this.generator = generator;
 		generator.start();
 	}
